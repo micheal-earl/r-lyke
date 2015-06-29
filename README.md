@@ -1,4 +1,4 @@
-Currently the only requirement is the Curses gem.
+Currently the only requirement is the ncurses-ruby gem.
 
 <pre>
 $ bundle install
@@ -8,7 +8,7 @@ $ ruby main.rb
 Without Bundler:
 
 <pre>
-$ gem install curses
+$ gem install ncurses-ruby
 $ ruby main.rb
 </pre>
 
