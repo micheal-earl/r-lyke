@@ -1,7 +1,5 @@
 require "ncurses"
 
-begin
-
 game_map = [  "###############",
               "#      #      #",
               "#             #",
@@ -13,11 +11,10 @@ game_map = [  "###############",
               "#          #  #",
               "###############"  ]
 
+begin
   # Initialize Curse
   Ncurses.initscr
 
-  #Ncurses.mvaddstr(0, 0, map[1][2] + "Make sure this works")
-      
   # Draw game map
   for y in 0...10
     for x in 0...15
