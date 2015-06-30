@@ -26,7 +26,7 @@ begin
     end
   end
 
-  # Player's starting coordinates 
+  # Player's starting coordinates
   y = 1
   x = 1
 
@@ -34,12 +34,10 @@ begin
   Ncurses.mvaddch(y, x, 64);
 
   # Wait for key press before leaving
-  Ncurses.getch
   Ncurses.refresh
+  Ncurses.getch
   sleep 1000
 
-  # Clean up after we've finished using curses
 ensure
   Ncurses.endwin
 end
-
