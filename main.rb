@@ -1,9 +1,10 @@
 require "ncurses"
-require "./input.rb"
-require "./mobiles.rb"
+require "./input.rb" # Doesn't do anything yet
+require "./mobiles.rb" # Doesn't do anything yet
 
 class Game
   def initialize
+    # A hash ASCII dictionary
     @key = Hash['W'     => 119, 'A'    => 97, 'S'  => 115, 'D'  => 100,
                 'POUND' => 35, 'SPACE' => 32, 'AT' => 64, 'ESC' => 27
                 'Y'     => 121]
@@ -12,6 +13,7 @@ class Game
   def generate_map(size)
     map_array = []
 
+    # Create an array of random length consisting of strings of numbers
     (rand(size) + 4).times do |n|
       map_array[n] = "#{rand(3)}#{rand(3)}#{rand(3)}#{rand(3)}#{rand(3)}"\
                      "#{rand(3)}#{rand(3)}#{rand(3)}#{rand(3)}#{rand(3)}"\
@@ -19,6 +21,10 @@ class Game
                      "#{rand(3)}#{rand(3)}#{rand(3)}#{rand(3)}#{rand(3)}"
     end
 
+    ###
+    # Replace all 1's with #'s and everying else with spaces
+    # Additionally ensure that map_array[n][0]/map_array[n][-1] are #'s
+    # ^ that means make sure the walls to the left/right are walls
     map_array.each_index do |n|
       for x in 0...20
         if map_array[n][x] == "1"
@@ -31,9 +37,11 @@ class Game
       map_array[n][-1] = "#"
     end
 
+    # Ensure the top and bottom of the map are solid walls
     map_array[0] = "####################"
     map_array[-1] = "####################"
 
+    # Ensure the spawn area is clear
     map_array[1][1] = " "
     map_array[1][2] = " "
     map_array[2][1] = " "
@@ -70,13 +78,13 @@ class Game
 
       scr.mvaddch(y, x, @key['AT']); # Redraw player
 
-      # ==================== DEBUG BLOCK BEGIN ====================
+      # ==================== DEBUG BLOCK BEGIN ==================== #
       debug += 1
       scr.mvaddstr(2, 25, "WASD to move, ESC to exit,")
       scr.mvaddstr(3, 25, "SPACE to generate new map")
       scr.mvaddstr(4, 25, "#{x}, #{y}, #{mover} mover #{debug}"\
                           " #{game_map[y-1][x]} #{game_map[y-1][x] == " "}")
-      # ===================== DEBUG BLOCK END =====================
+      # ===================== DEBUG BLOCK END ===================== #
 
       scr.refresh       # Refresh screen
       mover = scr.getch # Get user input for next frame
