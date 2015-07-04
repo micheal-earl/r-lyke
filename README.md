@@ -1,4 +1,4 @@
-Currently the only requirement is the ncurses-ruby gem.
+Currently the only requirement is Ruby and the ncurses-ruby gem.
 
 <pre>
 $ bundle install
