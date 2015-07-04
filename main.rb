@@ -1,12 +1,13 @@
 require "ncurses"
 require "./input.rb" # Doesn't do anything yet
 require "./mobiles.rb" # Doesn't do anything yet
+require "./items.rb" # See above comments
 
 class Game
   def initialize
     # A hash ASCII dictionary
     @key = Hash['W'     => 119, 'A'    => 97, 'S'  => 115, 'D'  => 100,
-                'POUND' => 35, 'SPACE' => 32, 'AT' => 64, 'ESC' => 27
+                'POUND' => 35, 'SPACE' => 32, 'AT' => 64, 'ESC' => 27,
                 'Y'     => 121]
   end
 
