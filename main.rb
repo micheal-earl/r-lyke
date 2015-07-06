@@ -14,7 +14,9 @@ class Game
   def generate_map(size)
     map_array = []
 
-    # Create an array of random length consisting of strings of numbers
+    ##
+    # Create an array of WIDTH length consisting of strings of numbers
+    # Width is to be added to the function at a later time
     (rand(size) + 4).times do |n|
       map_array[n] = "#{rand(3)}#{rand(3)}#{rand(3)}#{rand(3)}#{rand(3)}"\
                      "#{rand(3)}#{rand(3)}#{rand(3)}#{rand(3)}#{rand(3)}"\
@@ -22,10 +24,7 @@ class Game
                      "#{rand(3)}#{rand(3)}#{rand(3)}#{rand(3)}#{rand(3)}"
     end
 
-    ###
     # Replace all 1's with #'s and everying else with spaces
-    # Additionally ensure that map_array[n][0]/map_array[n][-1] are #'s
-    # ^ that means make sure the walls to the left/right are walls
     map_array.each_index do |n|
       for x in 0...20
         if map_array[n][x] == "1"
@@ -34,6 +33,7 @@ class Game
           map_array[n][x] = " "
         end
       end
+      # Ensure the left and right of the map are solid walls
       map_array[n][0] = "#"
       map_array[n][-1] = "#"
     end
