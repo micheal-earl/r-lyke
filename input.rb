@@ -1,3 +1,5 @@
+# This doesn't do anything yet, eventually it will handle inputs
+
 require 'ncurses'
 
 def test
