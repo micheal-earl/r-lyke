@@ -82,7 +82,7 @@ class Game
       # ==================== DEBUG BLOCK BEGIN ==================== #
       debug += 1
       scr.mvaddstr(2, 25, "WASD to move, ESC to exit,")
-      scr.mvaddstr(3, 25, "SPACE to generate new map")
+      scr.mvaddstr(3, 25, "SPACE to generate new map derp")
       scr.mvaddstr(4, 25, "#{x}, #{y}, #{mover} mover #{debug}"\
                           " #{game_map[y-1][x]} #{game_map[y-1][x] == " "}")
       # ===================== DEBUG BLOCK END ===================== #
